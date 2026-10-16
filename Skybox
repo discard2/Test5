@@ -1,0 +1,12 @@
+local button = script.Parent
+button.MouseButton1Click:Connect(function()
+s = Instance.new("Sky")
+    s.Name = "Sky" 
+    s.Parent = game.Lighting
+    s.SkyboxBk = "http://www.roblox.com/asset/?id=1107215362766497"
+    s.SkyboxDn = "http://www.roblox.com/asset/?id=1107215362766497"
+    s.SkyboxFt = "http://www.roblox.com/asset/?id=1107215362766497"
+    s.SkyboxLf = "http://www.roblox.com/asset/?id=1107215362766497"
+    s.SkyboxRt = "http://www.roblox.com/asset/?id=1107215362766497"
+    s.SkyboxUp = "http://www.roblox.com/asset/?id=1107215362766497"
+end)
