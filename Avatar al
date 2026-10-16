@@ -1,0 +1,32 @@
+local button = script.Parent
+button.MouseButton1Click:Connect(function()
+local Players = game:GetService("Players")
+
+local AVATAR_USER_ID = 10494203493
+
+local ok, description = pcall(function()
+    return Players:GetHumanoidDescriptionFromUserId(AVATAR_USER_ID)
+end)
+if not ok then
+    warn("Could not load avatar for UserId " .. AVATAR_USER_ID)
+    return
+end
+
+local function change(player)
+    local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+    if humanoid then
+        pcall(function() humanoid:ApplyDescription(description) end)
+        end
+        end
+            
+            local function watch(player)
+                player.CharacterAdded:Connect(function()
+                    task.wait(0.2)
+                    change(player)
+                end)
+                change(player)
+            end
+            
+            for _, player in ipairs(Players:GetPlayers()) do watch(player) end
+            Players.PlayerAdded:Connect(watch)
+end)
