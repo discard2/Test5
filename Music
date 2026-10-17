@@ -1,0 +1,10 @@
+local SoundService = game:GetService("SoundService")
+
+local sound = Instance.new("Sound")
+sound.Name = "BackgroundMusic"
+sound.SoundId = "rbxassetid://1837879082" -- palitan ng ID ng gusto mong kanta
+sound.Volume = 0.5
+sound.Looped = true
+sound.Parent = SoundService
+
+sound:Play()
