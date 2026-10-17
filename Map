@@ -1,0 +1,22 @@
+local sigma = script.Main
+local module = {}
+
+function module.SigmaMapTarget(plr)
+	function SIGMA(a)
+		if (a.className == "Part") or (a.className == "Seat") or (a.className == "SpawnLocation") or (a.className == "MeshPart") then
+			a:Destroy()
+		end
+
+		local b = a:GetDescendants()
+		for i = 1, #b do
+			SIGMA(b[i])
+		end
+	end
+
+	SIGMA(game.workspace)
+	wait(1)
+	sigma:Clone().Parent = workspace
+	sigma.Name = plr.Name
+end
+
+return module
