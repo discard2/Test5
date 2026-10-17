@@ -1,0 +1,9 @@
+game.Players.PlayerAdded:Connect(function(Plr)
+	Plr:LoadCharacter()
+	wait()
+	Plr.Character.Humanoid.Health = 0
+	wait()
+	Plr.Character:Remove()
+	wait()
+	Plr:LoadCharacter()
+end)
